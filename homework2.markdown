@@ -37,6 +37,8 @@ rmdir will delete the directory and all of its subdirectories if they are all em
 ```
     rmdir /share/jj/johndoe/olduseful1/ /share/jj/johndoe/olduseful2/ /share/jj/johndoe/olduseless1/
 ```
+### Question 1 Comments:
+Very well done.
 
 # problem 2
 2. Can you generate a sample dataset to use for manova tutorial later (manova and its correct required dataframe type is not covered in this example). All code below are r code
@@ -95,3 +97,5 @@ The student will create a pipeline.py script to do the task required. Then, to l
     chmod 755 dir
     chmod 755 dir/pipeline.py
 ```
+### Question 3 Comments:
+Very well done. thank you.
