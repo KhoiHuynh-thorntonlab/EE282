@@ -31,7 +31,7 @@ echo "download done"
 ```
 These lines are use to change to correct directory of downloaded fasta using cd. The grep command is the cut out the md5sum line of chromosome fasta and output to new md5sum file:
 
-homework question 1:
+# homework question 1:
 ```
 cd /bio/khoih/ee282/fasta/
 grep -e "chromosome" ./md5sum.txt > ./chromosomemd5.txt
@@ -74,7 +74,7 @@ echo is used to print status report
 ```
 echo "question 1 done"
 ```
-#homework question 2:
+# homework question 2:
 
 cd to change to correct directory:
 ```
