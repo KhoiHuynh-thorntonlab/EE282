@@ -1,6 +1,6 @@
-#homework 2#
+# homework 2
 
-#problem 1
+# problem 1
 1 . Due to recent problem of having too many files on your space in the lab share space on HPC, can you organize and concentrate your files into fewer new folders and delete all old folders and all the files that are in those old folders?
 
 1.Here are the code snippet for one liners in terminal for question 1 answer:
