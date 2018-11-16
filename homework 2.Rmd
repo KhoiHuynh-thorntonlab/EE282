@@ -67,7 +67,7 @@ or
  > ma <- matrix(c("a","b","c","d"), nrow=2, ncol=2)
  >ma[,3] = c(1,2)
  
-will give you subscript out of bounds. This is due to matrix is a homogenous type of data frame aka it can only contains either all numeric values or all text values. To trully generate the data set, we have to use dataframe in r
+will give you subscript out of bounds. This is due to matrix is a homogenous type of data frame aka it can only contains either all numeric values or all text values (_Comment: while it will give an out of bounds error, it is because you referenced a matrix column that doesn't yet exist. In dataframes, the column is automatically created. This is another difference between dataframes and matrices in R._). To trully generate the data set, we have to use dataframe in r
 
 to generate sample data in a dataframe, you can do the following.
 ```{r}
@@ -100,6 +100,10 @@ Now that you have a working data frame. you can assign a column name to each col
 After create your own sample data, you can assign column name by  
  
  >colnames(df)=c("lenght","type","group","location")
+
+### Question 2 Comments:
+
+Over all, you demonstrated the ability to manipulate dataframes and matrices in the right way. There are a few ideas you have a bit muddled (I specifically commented on the out of bounds issue above). I think this is because you're trying to go from simple to complex applications without passing through intermediate stages. So think a bit about the basics first before moving onto more complex ideas.
 
 #problem 3
 
