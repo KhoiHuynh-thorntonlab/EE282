@@ -2,8 +2,6 @@
 
 ```
 #!/bin/bash
-
-
 module load augustus/3.2.1
 module load blast/2.2.31 hmmer/3.1b2 boost/1.54.0
 source /pub/jje/ee282/bin/.buscorc
@@ -19,6 +17,8 @@ module load R/3.4.1
 module load samtools
 
 # first question:
+wget ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.24_FB2018_05/fasta/*chromosome*
+zcat dmel-all-chromosome-r6.24.fasta.gz > ref.fa
 
 bioawk -c fastx '{ if(length($seq) > 100000) { print ">"$name; print $seq }}' ref.fa > 100k.fa
 
@@ -116,9 +116,6 @@ awk ' $0 ~/^S/ { print ">" $2" \n" $3 } ' test.gfa \
 
 
 #nucmer allignment and mumplot:
-wget ftp://ftp.flybase.net/genomes/Drosophila_melanogaster/dmel_r6.24_FB2018_05/fasta/*chromosome*
-
-zcat dmel-all-chromosome-r6.24.fasta.gz > ref.fa
 
 /bio/khoih/MUMmer3.23/nucmer -l 100 -c 100 -d 10 -banded -D 5 -prefix output ref.fa unitigs.fa
 
