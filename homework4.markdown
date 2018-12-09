@@ -58,7 +58,9 @@ mkdir /bio/khoih/ee282/homework4/testing/100k/gc/
 cd /bio/khoih/ee282/homework4/testing/100k/gc
 
 # GC content distribution for sequence that is larger 100kb
-bioawk -c fastx '{ print $name, gc($seq) }' /bio/khoih/ee282/homework4/testing/100k/100k.fa > /bio/khoih/ee282/homework4/testing/100k/100kgc.txt
+bioawk -c fastx '{ print $name, gc($seq) }' /bio/khoih/ee282/homework4/testing/100k/100k.fa \
+> /bio/khoih/ee282/homework4/testing/100k/100kgc.txt
+
 cut -f2 100kgc.txt | Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
 
 #cummulative genome size for sequence that is larger 100kb
@@ -90,7 +92,9 @@ cd /bio/khoih/ee282/homework4/testing/s100k/gc
 
 #GC content distribution for sequence that is smaller or equal to 100kb:
 
-bioawk -c fastx '{ print $name, gc($seq) }' /bio/khoih/ee282/homework4/testing/s100k/s100k.fa > /bio/khoih/ee282/homework4/testing/s100k/s100kgc.txt
+bioawk -c fastx '{ print $name, gc($seq) }' /bio/khoih/ee282/homework4/testing/s100k/s100k.fa \
+> /bio/khoih/ee282/homework4/testing/s100k/s100kgc.txt
+
 cut -f2 /bio/khoih/ee282/homework4/testing/s100k/s100kgc.txt \
 | Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
 
