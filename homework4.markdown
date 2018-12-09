@@ -8,7 +8,6 @@ source /pub/jje/ee282/bin/.buscorc
 module load jje/jjeutils
 #mumerplot only works with gnu 4
 module load gnuplot/4.6.0
-#question 1:
 module load python/2.7.15
 module load perl
 module load jje/jjeutils/0.1a
@@ -52,7 +51,8 @@ mkdir /bio/khoih/ee282/homework4/testing/100k/length/
 
 cd /bio/khoih/ee282/homework4/testing/100k/length/
 # sequence length distribution for sequence that is larger 100kb
-cut -f2 /bio/khoih/ee282/homework4/testing/100k/100k.fa.fai | Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
+cut -f2 /bio/khoih/ee282/homework4/testing/100k/100k.fa.fai \
+| Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
 
 mkdir /bio/khoih/ee282/homework4/testing/100k/gc/
 cd /bio/khoih/ee282/homework4/testing/100k/gc
@@ -65,7 +65,9 @@ cut -f2 100kgc.txt | Rscript -e 'data <- as.numeric (readLines ("stdin")); summa
 mkdir /bio/khoih/ee282/homework4/testing/100k/gs/
 cd /bio/khoih/ee282/homework4/testing/100k/gs/
 
-bioawk -c fastx '{ print $name, length($seq) }' /bio/khoih/ee282/homework4/testing/100k/100k.fa |  awk '{print $2}' | awk '{total += $0; $0 = total}1' | sort -n -r | Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data,xlim = rev(range(8000000,0)))'
+bioawk -c fastx '{ print $name, length($seq) }' /bio/khoih/ee282/homework4/testing/100k/100k.fa \
+|  awk '{print $2}' | awk '{total += $0; $0 = total}1' | sort -n -r \
+| Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data,xlim = rev(range(8000000,0)))'
 
 
 # less than 100kb plot:
@@ -80,7 +82,8 @@ mkdir /bio/khoih/ee282/homework4/testing/s100k/length/
 
 # sequence length distribution for sequence that is smaller or equal to 100kb
 cd /bio/khoih/ee282/homework4/testing/s100k/length/
-cut -f2 /bio/khoih/ee282/homework4/testing/s100k/s100k.fa.fai | Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
+cut -f2 /bio/khoih/ee282/homework4/testing/s100k/s100k.fa.fai \
+| Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
 
 mkdir /bio/khoih/ee282/homework4/testing/s100k/gc/
 cd /bio/khoih/ee282/homework4/testing/s100k/gc
@@ -88,14 +91,17 @@ cd /bio/khoih/ee282/homework4/testing/s100k/gc
 #GC content distribution for sequence that is smaller or equal to 100kb:
 
 bioawk -c fastx '{ print $name, gc($seq) }' /bio/khoih/ee282/homework4/testing/s100k/s100k.fa > /bio/khoih/ee282/homework4/testing/s100k/s100kgc.txt
-cut -f2 /bio/khoih/ee282/homework4/testing/s100k/s100kgc.txt | Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
+cut -f2 /bio/khoih/ee282/homework4/testing/s100k/s100kgc.txt \
+| Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data)'
 
 #genome size for sequence that is smaller or equal to 100kb:
 
 mkdir /bio/khoih/ee282/homework4/testing/s100k/gs/
 cd /bio/khoih/ee282/homework4/testing/s100k/gs/
 
-bioawk -c fastx '{ print $name, length($seq) }' /bio/khoih/ee282/homework4/testing/s100k/s100k.fa |  awk '{print $2}' | awk '{total += $0; $0 = total}1' | sort -n -r | Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data,xlim = rev(range(8000000,0)))'
+bioawk -c fastx '{ print $name, length($seq) }' /bio/khoih/ee282/homework4/testing/s100k/s100k.fa \
+|  awk '{print $2}' | awk '{total += $0; $0 = total}1' | sort -n -r \
+| Rscript -e 'data <- as.numeric (readLines ("stdin")); summary(data); hist(data,xlim = rev(range(8000000,0)))'
 
 
 #assembly question:
@@ -137,11 +143,14 @@ perl -i -pe 's/defined \(%/\(%/' /bio/khoih/MUMmer3.23/mummerplot
 
 faSplitByN ../ref.fa ./ref.fa 10
 wait
-bioawk -c fastx ' { print length($seq) } ' ./ref.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nFB_Scaff\t0" } { print "FB_Scaff\t" $1 } ' > r6scaff_fifo.txt &
+bioawk -c fastx ' { print length($seq) } ' ./ref.fa | sort -rn \
+| awk ' BEGIN { print "Assembly\tLength\nFB_Scaff\t0" } { print "FB_Scaff\t" $1 } ' > r6scaff_fifo.txt &
 
-bioawk -c fastx ' { print length($seq) } ' ../ref.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nFB_Ctg\t0" } { print "FB_Ctg\t" $1 } ' > r6ctg_fifo.txt &
+bioawk -c fastx ' { print length($seq) } ' ../ref.fa | sort -rn \
+| awk ' BEGIN { print "Assembly\tLength\nFB_Ctg\t0" } { print "FB_Ctg\t" $1 } ' > r6ctg_fifo.txt &
 
-bioawk -c fastx ' { print length($seq) } ' unitigs.fa | sort -rn | awk ' BEGIN { print "Assembly\tLength\nTruSeq_Ctg\t0" } { print "TruSeq_Ctg\t" $1 } ' > truseq_fifo.txt &
+bioawk -c fastx ' { print length($seq) } ' unitigs.fa | sort -rn \
+| awk ' BEGIN { print "Assembly\tLength\nTruSeq_Ctg\t0" } { print "TruSeq_Ctg\t" $1 } ' > truseq_fifo.txt &
 
 wait
 
@@ -158,6 +167,7 @@ OPTIONS="-l ${MYLIBDIR}${MYLIB}"
 QRY="unitigs.fa"
 MYEXT=".fa"
 
-python /pub/jje/ee282/bin/busco/BUSCO.py -c 1 -i ${QRY} -m ${INPUTTYPE} -o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
+python /pub/jje/ee282/bin/busco/BUSCO.py -c 1 -i ${QRY} -m ${INPUTTYPE} \
+-o $(basename ${QRY} ${MYEXT})_${MYLIB}${SPTAG} ${OPTIONS}
 
 ```
