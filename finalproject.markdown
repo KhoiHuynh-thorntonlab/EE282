@@ -24,7 +24,8 @@ rawfix=`head -n $SGE_TASK_ID $files | tail -n 1`
 #====================
 # trimming nextera adapter, matching ref and output bam:
 #=================
-/bio/khoih/TrimGalore-0.4.5/trim_galore --paired --nextera $fqdir/$rawfix/*R1*.fastq.gz $fqdir/$rawfix/*R2*.fastq.gz -o $fqdir/$rawfix/
+/bio/khoih/TrimGalore-0.4.5/trim_galore --paired --nextera $fqdir/$rawfix/*R1*.fastq.gz \
+$fqdir/$rawfix/*R2*.fastq.gz -o $fqdir/$rawfix/
 
 a=`ls $fqdir/$rawfix/*_R1*.fq.gz | tr 'n' ' '`
 b=`ls $fqdir/$rawfix/*_R2*.fq.gz | tr 'n' ' '`
@@ -51,9 +52,10 @@ samtools sort $fqdir/$rawfix.fixmate.temp.bam -o $fqdir/$rawfix.fixmate.sort.bam
 samtools index $fqdir/$rawfix.fixmate.sort.bam
 echo "fixmate done"
 # =============
-# Mark duplicates
+# Mark and remove duplicates
 # =============
-java -jar /bio/khoih/picard_2_18_7.jar MarkDuplicates I=$fqdir/$rawfix.fixmate.sort.bam O=$fqdir/$rawfix.dedup.bam M=$fqdir/$rawfix.dups.txt REMOVE_DUPLICATES=true
+java -jar /bio/khoih/picard_2_18_7.jar MarkDuplicates I=$fqdir/$rawfix.fixmate.sort.bam \
+O=$fqdir/$rawfix.dedup.bam M=$fqdir/$rawfix.dups.txt REMOVE_DUPLICATES=true
 #===========
 # REMOVE MITO
 #=============
@@ -64,7 +66,10 @@ samtools sort -n $fqdir/$rawfix.nomt.bam -o $fqdir/$rawfix.nomtsort.bam
 #================
 # convert bam to bedpe file
 #================
-bedtools bamtobed -bedpe -mate1 -i $fqdir/$rawfix.nomtsort.bam  | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($9 == "+") {$2 = $2 + 4} else if ($9 == "-") {$3 = $3 - 5} print $0}'  | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($10 == "+") {$5 = $5 + 4} else if ($10 == "-") {$6 = $6 - 5} print $0}'  > $fqdir/$rawfix.bed
+bedtools bamtobed -bedpe -mate1 -i $fqdir/$rawfix.nomtsort.bam  \
+| awk -F $'\t' 'BEGIN {OFS = FS}{ if ($9 == "+") {$2 = $2 + 4} else if ($9 == "-") {$3 = $3 - 5} print $0}'  \
+| awk -F $'\t' 'BEGIN {OFS = FS}{ if ($10 == "+") {$5 = $5 + 4} else if ($10 == "-") {$6 = $6 - 5} print $0}' \
+> $fqdir/$rawfix.bed
 
 
 ```
