@@ -14,6 +14,7 @@ module load jje/jjeutils/0.1a
 module load rstudio/0.99.9.9
 module load R/3.4.1
 module load samtools
+module load jje/kent/2014.02.19
 
 # first question:
 
