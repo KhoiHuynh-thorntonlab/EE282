@@ -8,6 +8,12 @@ The final project script is a script that is submitted by qsub and process seque
 #$ -R y
 #$ -t 1-4
 
+#-N -> process name
+#-q to specify which compute core to use
+#-pe to specify the number of thread
+#-t to specify total number of task (total line of your name.txt file
+#-R to specify if the job is rerunable with y mean yes.
+
 #loading all required softwares
 
 module load enthought_python/7.3.2
