@@ -8,18 +8,25 @@ The final project script is a script that is submitted by qsub and process seque
 #$ -R y
 #$ -t 1-4
 
+#loading all required softwares
 
 module load enthought_python/7.3.2
 module load R/3.4.1
 module load samtools
 module load bedtools/2.25.0
-newdata="/bio/khoih/"
-# the folders...with the data
+
+
 #name.txt is the file that contain all base name of files prior to any extension.
 files="/bio/khoih/name.txt"
-# I gave you a tar of this directoryref="/bio/khoih/ref/dm6.fa"
+
+#reference fa for bwa alignment
+ref="/bio/khoih/ref/dm6.fa"
+
+#output base name for file base on task number
 rawfix=`head -n $SGE_TASK_ID $files | tail -n 1`
 
+#raw fastq folder
+fqdir="/bio/khoih/fastq/"
 
 #====================
 # trimming nextera adapter, matching ref and output bam:
@@ -70,6 +77,5 @@ bedtools bamtobed -bedpe -mate1 -i $fqdir/$rawfix.nomtsort.bam  \
 | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($9 == "+") {$2 = $2 + 4} else if ($9 == "-") {$3 = $3 - 5} print $0}'  \
 | awk -F $'\t' 'BEGIN {OFS = FS}{ if ($10 == "+") {$5 = $5 + 4} else if ($10 == "-") {$6 = $6 - 5} print $0}' \
 > $fqdir/$rawfix.bed
-
 
 ```
