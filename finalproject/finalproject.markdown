@@ -49,12 +49,12 @@ b=`ls $fqdir/$rawfix/*_R2*.fq.gz | tr 'n' ' '`
 
 bwa mem -t $bwacore -M $ref <(zcat $a) <(zcat $b) | samtools view -bS - > $fqdir/$rawfix.bam
 ```
-# =============================
+#=============================
 # Remove unmapped, mate unmapped
 # not primary alignment, reads failing platform
 # Only keep properly paired reads
 # Obtain name sorted BAM file
-# ==================
+#==================
 ```
 samtools view -F 524 -f 2 -u $fqdir/$rawfix.bam > $fqdir/$rawfix.2.bam
 samtools sort -n $fqdir/$rawfix.2.bam -o $fqdir/$rawfix.sorted.bam
@@ -73,9 +73,9 @@ samtools sort $fqdir/$rawfix.fixmate.temp.bam -o $fqdir/$rawfix.fixmate.sort.bam
 samtools index $fqdir/$rawfix.fixmate.sort.bam
 echo "fixmate done"
 ```
-# =============
+#=============
 # Mark and remove duplicates
-# =============
+#=============
 ```
 java -jar /bio/khoih/picard_2_18_7.jar MarkDuplicates I=$fqdir/$rawfix.fixmate.sort.bam \
 O=$fqdir/$rawfix.dedup.bam M=$fqdir/$rawfix.dups.txt REMOVE_DUPLICATES=true
