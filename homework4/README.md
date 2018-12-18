@@ -1,3 +1,9 @@
+# Breakdown of code:
+
+homework4.markdown include code breakdown to individual code snippet with comment so it is easier to follow
+
+hw4.sh is the actual bash script that also included comments to explain different functions of the code
+
 # Question 1 results:
 
 ## Calculate the following for all sequences ≤ 100kb and all sequences > 100kb:
