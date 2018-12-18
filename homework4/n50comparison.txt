@@ -1,0 +1,4 @@
+from constructed assembly : n50 = 4494246
+
+from reference assembly : scaffold n50 = 25,286,936 and contig n50 = 21,485,538
+
