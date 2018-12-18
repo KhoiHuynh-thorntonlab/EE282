@@ -16,3 +16,14 @@ fileformat: 100k-prefix is for all sequences bigger than 100k and s100k-prefix i
   Sequence GC% distribution: 100kgc.pdf and s100kgc.pdf
   
   Cumulative genome size sorted from largest to smallest sequences: 100kgs.pdf and s100kgs.pdf
+
+# Assembly assessment
+
+## comparison of n50 : n50comparison.txt
+
+## Compare your assembly to the contig assembly (not the scaffold assembly!) from Drosophila melanogaster on FlyBase using a dotplot constructed with MUMmer (Hint: use faSplitByN as demonstrated in class) : image.png
+
+## Compare your assembly to both the contig assembly and the scaffold assembly from the Drosophila melanogaster on FlyBase using a contiguity plot (Hint: use plotCDF2 as demonstrated in class and see this example): r6_v_truseq.png
+
+
+## Calculate BUSCO scores of both assemblies and compare them : full_table_unitigs_diptera_odb9.tsv
