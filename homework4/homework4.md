@@ -209,11 +209,23 @@ python /pub/jje/ee282/bin/busco/BUSCO.py -c 1 -i ${QRY} -m ${INPUTTYPE} \
 
 ## Calculate the following for all sequences ≤ 100kb and all sequences > 100kb:
 fileformat: 100k-prefix is for all sequences bigger than 100k and s100k-prefix is for all sequences smaller or equal to 100k:
-  Total number of nucleotides : 100ktotalnucleotidecount.txt and s100ktotalnucleotidecount.txt
+  Total number of nucleotides : 
+     
+     100ktotalnucleotidecount :137547960
+     
+     s100ktotalnucleotidecount :6178042
   
-  Total number of Ns: 100kNcount.txt and s100kNcount.txt
+  Total number of Ns: 
+     
+     100kNcount : 490385
+     
+     s100kNcount : 662593
   
-  Total number of sequences : 100ksequencecount.txt and s100ksequencecount.txt
+  Total number of sequences : 
+      
+      100ksequencecount: 7
+      
+      s100ksequencecount: 1863
 
 ## Plots of the following for the whole genome, for all sequences ≤ 100kb, and all sequences > 100kb:
 fileformat: 100k-prefix is for all sequences bigger than 100k and s100k-prefix is for all sequences smaller or equal to 100k:
@@ -241,6 +253,7 @@ fileformat: 100k-prefix is for all sequences bigger than 100k and s100k-prefix i
 # Assembly assessment
 
 comparison of n50 : n50comparison.txt:
+
    from constructed assembly : n50 = 4494246
 
    from reference assembly : scaffold n50 = 25,286,936 and contig n50 = 21,485,538
@@ -253,4 +266,114 @@ Compare your assembly to both the contig assembly and the scaffold assembly from
 
 ![](r6_v_truseq.png)
 
-Calculate BUSCO scores of both assemblies and compare them : full_table_unitigs_diptera_odb9.tsv
+Calculate BUSCO scores of both assemblies and compare them : 
+
+Full result can be found in full_table_unitigs_diptera_odb9.tsv
+
+Busco id	Status	Contig	Start	End	Score	Length
+EOG09150006	Missing
+EOG09150009	Missing
+EOG0915000C	Missing
+EOG0915000S	Missing
+EOG0915000X	Missing
+EOG0915000Y	Missing
+EOG0915001B	Missing
+EOG0915001M	Missing
+EOG0915001T	Fragmented	utg000028l	1791386	1802091	177.0	496
+EOG09150020	Missing
+EOG09150025	Missing
+EOG09150029	Missing
+EOG0915002A	Missing
+EOG0915002H	Missing
+EOG0915002R	Missing
+EOG0915002S	Fragmented	utg000033l	1224323	1228239	240.7	254
+EOG0915002T	Missing
+EOG0915002U	Missing
+EOG0915002V	Missing
+EOG0915002W	Missing
+EOG0915002Y	Missing
+EOG09150038	Missing
+EOG09150039	Missing
+EOG0915003A	Missing
+EOG0915003C	Missing
+EOG0915003F	Missing
+EOG0915003G	Missing
+EOG0915003H	Missing
+EOG0915003K	Fragmented	utg000002l	16479577	16486864	96.2	190
+EOG0915003N	Missing
+EOG0915003P	Missing
+EOG0915003Q	Missing
+EOG09150044	Missing
+EOG09150046	Missing
+EOG09150048	Missing
+EOG0915004B	Missing
+EOG0915004D	Missing
+EOG0915004G	Missing
+EOG0915004N	Missing
+EOG0915004P	Missing
+EOG0915004R	Missing
+EOG0915004S	Missing
+EOG0915004Z	Missing
+EOG09150052	Missing
+EOG09150055	Missing
+EOG09150056	Missing
+EOG0915005D	Missing
+EOG0915005K	Missing
+EOG0915005Q	Missing
+EOG0915005S	Missing
+EOG0915005U	Missing
+EOG09150060	Missing
+EOG0915006G	Missing
+EOG0915006H	Missing
+EOG0915006M	Missing
+EOG0915006N	Missing
+EOG0915006S	Missing
+EOG0915006U	Missing
+EOG0915006W	Missing
+EOG09150070	Missing
+EOG0915007E	Missing
+EOG0915007K	Missing
+EOG0915007O	Missing
+EOG0915007Q	Missing
+EOG0915007S	Missing
+EOG0915007U	Missing
+EOG0915007X	Missing
+EOG0915007Y	Missing
+EOG09150080	Missing
+EOG09150083	Missing
+EOG09150085	Missing
+EOG0915008Q	Missing
+EOG09150090	Missing
+EOG09150097	Missing
+EOG0915009E	Missing
+EOG0915009H	Missing
+EOG0915009K	Missing
+EOG0915009L	Missing
+EOG0915009N	Missing
+EOG0915009U	Missing
+EOG0915009W	Missing
+EOG0915009X	Missing
+EOG0915009Y	Missing
+EOG091500A1	Missing
+EOG091500A4	Missing
+EOG091500AC	Missing
+EOG091500AF	Missing
+EOG091500AG	Missing
+EOG091500AI	Missing
+EOG091500B0	Missing
+EOG091500B5	Missing
+EOG091500BC	Missing
+EOG091500BI	Missing
+EOG091500BN	Missing
+EOG091500BS	Missing
+EOG091500BU	Missing
+EOG091500BX	Missing
+EOG091500BZ	Missing
+EOG091500C2	Missing
+EOG091500C6	Missing
+EOG091500CC	Missing
+EOG091500CK	Missing
+EOG091500CM	Missing
+EOG091500CP	Missing
+EOG091500CW	Missing
+EOG091500CY	Fragmented	utg000034l	126097	136703	116.9	335
