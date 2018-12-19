@@ -272,7 +272,7 @@ Full result can be found in full_table_unitigs_diptera_odb9.tsv
 
 first 4 busco score 
 | Busco id    |	Status     |	Contig     |	Start   |	End     |	Score    |	Length| 
-| ----------- | ---------- | ---------- | ------- | ------- | -------- | ----- |
+| :---------: | :--------: | :--------: | :-----: | :-----: | :------: | :---: |
 | EOG0915001T |	Fragmented |	utg000028l |	1791386 |	1802091 |	177.0	496|
 | EOG0915002S |	Fragmented |	utg000033l |	1224323 |	1228239 |	240.7	254|
 | EOG0915003K |	Fragmented |	utg000002l |	16479577|	16486864|	96.2	190 |
