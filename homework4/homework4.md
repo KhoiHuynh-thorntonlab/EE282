@@ -1,3 +1,5 @@
+### I do not see any plots or any results. Please make sure to embed plots and images as well as provide the calculated values for the questions asked. Your code for genome assembly looks good, but you should be able to provide the results. Please update this asap.
+
 #To intiate a bash script and loading in neccessary module
 
 ```
