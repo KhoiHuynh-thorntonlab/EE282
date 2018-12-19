@@ -263,6 +263,8 @@ Compare your assembly to the contig assembly (not the scaffold assembly!) from D
 
 ![](image.png)
 
+### Here it appears you did not follow directions and ran MUMmer on the scaffolded assembly. It is very difficult to tell due to your naming of both the scaffold and contig reference assembly as the same name. Also there is no information on whether you copied or linked the correct ref.fa to the working directory of MUMmer. Based on the dotplot, it appears as though you used the scaffolded assembly. Please try to make things more clear on what your process is in the future, because it is very difficult to follow and understand exactly what you did.
+
 Compare your assembly to both the contig assembly and the scaffold assembly from the Drosophila melanogaster on FlyBase using a contiguity plot (Hint: use plotCDF2 as demonstrated in class and see this example): 
 
 ![](r6_v_truseq.png)
