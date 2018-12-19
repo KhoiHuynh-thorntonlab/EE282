@@ -138,3 +138,14 @@ else is used to output status if the gtf file is corrupted:
 echo the status of job to notify that the script is done to this point. 
 
 >echo "question 2 done"
+
+### Comments
+
+This is almost perfect. You could simply counting genes on the chromosomes with this line:
+
+```
+awk ' $1 ~ /^(3R|2R|2L|3L|X|Y|4)$/ { print $1 } ' <(zcat dmel-all-r6.24.gtf.gz) \
+| sort \
+| uniq -c \
+| sort -rnk1,1
+```
