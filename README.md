@@ -12,5 +12,6 @@ HW3 is uploaded :
  Please upload mardown files instead of pdf files. I cannot comment on pdf files. Also part of the assignment was to submit the homework in markdown. Please upload the homework again as markdown files. Thank you. :)
  
  1. R
+ 
     R   
  
